@@ -1,19 +1,30 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+  "wizard": {
+    "title" :"Multi Modal",
+    "steps":[{
+      "label":"Custom label",
+      "type":"INPUT",
+      "title":"Email address",
+      "htmlHeaderContent":"you can include html content as well!!!",
+      "placeholder":"Enter email",
+      "footerText":"We’ll never share your email with anyone else.",
+      "isSkipable":true
+      },
+      {
+      "label":"Step 2",
+      "type":"CHECKBOX",
+      "title":"Accept terms",
+      "isMandatoryToFill":true
+      }
+      ,
+      {
+      "label":"Step 3",
+      "type":"RADIO_BTN",
+      "title":"GENDER",
+      "options":["Female","male"],
+      "isMandatoryToFill":false,
+      "isSkipable":true
+      }
+    ]
   }
 }

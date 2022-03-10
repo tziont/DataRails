@@ -12,7 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { WizardModalComponent } from './components/wizard-modal/wizard-modal.component';
 import { MatStepperModule } from '@angular/material/stepper';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,8 +28,9 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatStepperModule
-   ],
+    MatStepperModule,
+    HttpClientModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

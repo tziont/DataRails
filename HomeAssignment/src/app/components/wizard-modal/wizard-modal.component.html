@@ -1,15 +1,25 @@
+<div *ngIf="res">{{res.title|json}}
 <mat-stepper linear #stepper labelPosition="bottom">
     <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
     </ng-template>
-    <mat-step label="first">
-        <h3>this is step 1</h3>
-        <input type="text">
+    <mat-step *ngFor="let step of res.steps" label="{{step.label}}">
+        <h3>{{step.label}}</h3>
+        <div *ngIf="step.type === 'INPUT'">
+            <input type="text">
+        </div>
+        <div *ngIf="step.type === 'RADIO_BTN'">
+            <input type="radio" name="gender">
+        <input type="radio" name="gender">
+        </div>
+        <div *ngIf="step.type === 'CHECKBOX'">
+            <input type="checkbox">
+        </div>
         <div>
             <button matStepperNext>Next</button>
         </div>
     </mat-step>
-    <mat-step label="second" completed="true" optional matStepperIcon="number">
+    <!-- <mat-step label="second" completed="true" optional matStepperIcon="number">
         <h3>this is step 2</h3>
         
         <input type="radio" name="gender">
@@ -40,8 +50,9 @@
         <div>
             <button matStepperPrevious>Back</button>
         </div>
-    </mat-step>
+    </mat-step> -->
 </mat-stepper>
+</div>
 <!-- <container_element [ngSwitch]="switch_expression">
     <inner_element *ngSwitchCase="match_expresson_1">...</inner_element>
     <inner_element *ngSwitchCase="match_expresson_2">...</inner_element>
