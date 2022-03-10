@@ -5,25 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-
+import  {MatDialogModule} from '@angular/material/dialog'
 import { MatButtonModule } from '@angular/material/button';
+
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { WizardModalComponent } from './components/wizard-modal/wizard-modal.component';
+import { MatStepperModule } from '@angular/material/stepper';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    WizardModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatButtonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    MatDialogModule,
+    MatStepperModule
+   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
