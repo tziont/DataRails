@@ -1,61 +1,27 @@
-<div *ngIf="res">{{res.title|json}}
+<div *ngIf="wizard">
 <mat-stepper linear #stepper labelPosition="bottom">
+    
     <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
     </ng-template>
-    <mat-step *ngFor="let step of res.steps" label="{{step.label}}">
-        <h3>{{step.label}}</h3>
-        <div *ngIf="step.type === 'INPUT'">
-            <input type="text">
+    <mat-step *ngFor="let wizardStep of wizardSteps; let i = index" completed="{{!!wizardStep.isSkipable || completedState[i].isCompleted }}" optional="{{!!wizardStep.isSkipable}}" label="{{wizardStep.label}}">
+        <h3>{{wizardStep.label}}</h3>
+        <div *ngIf="wizardStep.type === 'INPUT'">
+            <input #input type="text"  (change) ="completed($event,i)">
         </div>
-        <div *ngIf="step.type === 'RADIO_BTN'">
-            <input type="radio" name="gender">
-        <input type="radio" name="gender">
-        </div>
-        <div *ngIf="step.type === 'CHECKBOX'">
-            <input type="checkbox">
-        </div>
-        <div>
-            <button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-    <!-- <mat-step label="second" completed="true" optional matStepperIcon="number">
-        <h3>this is step 2</h3>
-        
+        <div *ngIf="wizardStep.type === 'RADIO_BTN'">
         <input type="radio" name="gender">
         <input type="radio" name="gender">
+        </div>
+        <div *ngIf="wizardStep.type === 'CHECKBOX'">
+            <input type="checkbox" (change)="completed($event,i)">
+        </div>
         <div>
-            <button matStepperPrevious>Back</button>
-            <button matStepperNext>Next</button>
+            <button *ngIf="i !== 0" matStepperPrevious>Previous</button>
+            <button *ngIf="wizardStep.isSkipable" matStepperNext>Skip</button>
+            <button *ngIf="i !== wizard.steps.length - 1" matStepperNext>Next</button>
+            
         </div>
     </mat-step>
-    <mat-step label="third">
-        <h3>this is step 3</h3>
-        <input type="checkbox">
-        <div>
-            <button matStepperPrevious>Back</button>
-            <button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-    <mat-step label="fourth">
-        <h3>this is step 4</h3>
-        <div>
-            <button matStepperPrevious>Back</button>
-            <button matStepperPrevious>Back</button>
-            <button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-    <mat-step label="fifth">
-        <h3>this is step 5</h3>
-        <div>
-            <button matStepperPrevious>Back</button>
-        </div>
-    </mat-step> -->
 </mat-stepper>
 </div>
-<!-- <container_element [ngSwitch]="switch_expression">
-    <inner_element *ngSwitchCase="match_expresson_1">...</inner_element>
-    <inner_element *ngSwitchCase="match_expresson_2">...</inner_element>
-    <inner_element *ngSwitchCase="match_expresson_3">...</inner_element>
-    <inner_element *ngSwitchDefault>...</element>
-</container_element> -->
