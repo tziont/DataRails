@@ -1,46 +1,48 @@
 {
   "wizard": {
-    "title" :"Multi Modal",
-    "steps":[{
-      "label":"Custom label",
-      "type":"INPUT",
-      "title":"Email address",
-      "htmlHeaderContent":"you can include html content as well!!!",
-      "placeholder":"Enter email",
-      "footerText":"We’ll never share your email with anyone else.",
-      "isMandatoryToFill":false
+    "title": "Multi Modal",
+    "steps": [
+      {
+        "label": "Custom label",
+        "type": "INPUT",
+        "title": "EMAIL ADDRESS",
+        "htmlHeaderContent": "you can include html content as well!!!",
+        "placeholder": "Enter email",
+        "footerText": "We’ll never share your email with anyone else.",
+        "isMandatoryToFill": false
       },
       {
-      "label":"Step 2",
-      "type":"CHECKBOX",
-      "title":"Accept terms",
-      "isMandatoryToFill":true
+        "label": "Step 2",
+        "type": "CHECKBOX",
+        "title": "ACCEPT TERMS",
+        "htmlHeaderContent": "Check to state you read and agree to our Terms and Conditions",
+        "isMandatoryToFill": true
+      },
+      {
+        "label": "Step 3",
+        "type": "RADIO_BTN",
+        "title": "GENDER",
+        "options": ["Female", "male"],
+        "isMandatoryToFill": false,
+        "isSkipable": true
+      },
+      {
+        "label": "Step 4",
+        "type": "INPUT",
+        "title": "favorite animal",
+        "htmlHeaderContent":"Let us know Your favorite animal",
+        "placeholder": "Enter favorite animal",
+        "isMandatoryToFill": true,
+        "isSkipable": false
+      },
+      {
+        "label": "Done",
+
+        "title": "THANKS",
+        "htmlHeaderContent": "Thanks for the challenging home assignment",
+        "isMandatoryToFill": false,
+        "isSkipable": true
       }
-      ,
-      {
-      "label":"Step 3",
-      "type":"RADIO_BTN",
-      "title":"GENDER",
-      "options":["Female","male"],
-      "isMandatoryToFill":false,
-      "isSkipable":true
-      },
-      {
-        "label":"Step 4",
-        "type":"RADIO_BTN",
-        "title":"GENDER",
-        "options":["Female","male"],
-        "isMandatoryToFill":true,
-        "isSkipable":false
-        },
-        {
-          "label":"Step 5",
-          "type":"RADIO_BTN",
-          "title":"GENDER",
-          "options":["Female","male"],
-          "isMandatoryToFill":false,
-          "isSkipable":true
-        }
     ]
   }
 }

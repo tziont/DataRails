@@ -1,27 +1,36 @@
 <div *ngIf="wizard">
+  <h3>{{wizard.title}}</h3>
 <mat-stepper linear #stepper labelPosition="bottom">
     
     <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
     </ng-template>
     <mat-step *ngFor="let wizardStep of wizardSteps; let i = index" completed="{{!!wizardStep.isSkipable || completedState[i].isCompleted }}" optional="{{!!wizardStep.isSkipable}}" label="{{wizardStep.label}}">
-        <h3>{{wizardStep.label}}</h3>
+        <h3>{{wizardStep.title}}</h3>
+        <h4 *ngIf="wizardStep.htmlHeaderContent">{{wizardStep.htmlHeaderContent}}</h4>
         <div *ngIf="wizardStep.type === 'INPUT'">
-            <input #input type="text"  (change) ="completed($event,i)">
+            <input #input type="text"  (change) ="completed($event,i)" [placeholder]="wizardStep.placeholder">
         </div>
+
         <div *ngIf="wizardStep.type === 'RADIO_BTN'">
-        <input type="radio" name="gender">
-        <input type="radio" name="gender">
+            <div *ngFor="let option of wizardStep.options">
+                <label>{{option}}</label>
+                <input  type="radio" name="gender">
+            </div>
         </div>
+
         <div *ngIf="wizardStep.type === 'CHECKBOX'">
             <input type="checkbox" (change)="completed($event,i)">
         </div>
-        <div>
-            <button *ngIf="i !== 0" matStepperPrevious>Previous</button>
-            <button *ngIf="wizardStep.isSkipable" matStepperNext>Skip</button>
-            <button *ngIf="i !== wizard.steps.length - 1" matStepperNext>Next</button>
-            
+        <p *ngIf="wizardStep.footerText">{{wizardStep.footerText}}</p>
+        <div class="actions-wrapper">
+            <button class="btn prev" *ngIf="i !== 0" matStepperPrevious>Previous</button>
+            <div class="skip-next-wrapper">
+            <button class="btn skip" *ngIf="wizardStep.isSkipable && i !== wizard.steps.length - 1 " matStepperNext>Skip</button>
+            <button class="btn next" *ngIf="i !== wizard.steps.length - 1" matStepperNext>Next</button>
         </div>
+        </div>
+            
     </mat-step>
 </mat-stepper>
 </div>
