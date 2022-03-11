@@ -8,7 +8,7 @@
       "htmlHeaderContent":"you can include html content as well!!!",
       "placeholder":"Enter email",
       "footerText":"We’ll never share your email with anyone else.",
-      "isSkipable":true
+      "isMandatoryToFill":false
       },
       {
       "label":"Step 2",
@@ -24,7 +24,23 @@
       "options":["Female","male"],
       "isMandatoryToFill":false,
       "isSkipable":true
-      }
+      },
+      {
+        "label":"Step 4",
+        "type":"RADIO_BTN",
+        "title":"GENDER",
+        "options":["Female","male"],
+        "isMandatoryToFill":true,
+        "isSkipable":false
+        },
+        {
+          "label":"Step 5",
+          "type":"RADIO_BTN",
+          "title":"GENDER",
+          "options":["Female","male"],
+          "isMandatoryToFill":false,
+          "isSkipable":true
+        }
     ]
   }
 }
