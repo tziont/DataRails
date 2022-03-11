@@ -36,8 +36,6 @@ export class WizardModalComponent implements OnInit, OnDestroy {
   }
 
   completed($event: any, i: number) {
-    console.log($event.target, i);
-    console.log($event.target);
     if ($event.target.type === 'checkbox') {
       this.completedState[i].isCompleted = !!$event.target.checked;
     } else {
