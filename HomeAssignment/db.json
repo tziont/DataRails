@@ -3,7 +3,7 @@
     "title": "Multi Modal",
     "steps": [
       {
-        "label": "Custom label",
+        "label": "Let's start",
         "type": "INPUT",
         "title": "EMAIL ADDRESS",
         "htmlHeaderContent": "you can include html content as well!!!",
